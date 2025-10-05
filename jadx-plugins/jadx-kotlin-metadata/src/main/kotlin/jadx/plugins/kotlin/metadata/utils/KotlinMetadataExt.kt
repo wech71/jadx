@@ -68,6 +68,5 @@ private fun IAnnotation.getParamAsString(paramName: String): String? {
 }
 
 fun ClassNode.getKotlinClassMetadata(): KotlinClassMetadata? {
-	//return getMetadata()?.let(KotlinClassMetadata::readLenient)
-	return getMetadata()?.let(KotlinClassMetadata::readStrict)
+	return getMetadata()?.let(KotlinClassMetadata::readLenient)
 }
