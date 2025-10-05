@@ -7,8 +7,8 @@ import jadx.api.plugins.input.data.annotations.EncodedValue
 import jadx.api.plugins.input.data.annotations.IAnnotation
 import jadx.core.dex.nodes.ClassNode
 import jadx.plugins.kotlin.metadata.model.KotlinMetadataConsts
-import kotlinx.metadata.jvm.KotlinClassMetadata
-import kotlinx.metadata.jvm.Metadata
+import kotlin.metadata.jvm.KotlinClassMetadata
+import kotlin.metadata.jvm.Metadata
 
 fun ClassNode.getMetadata(): Metadata? {
 	val annotation: IAnnotation? = getAnnotation(KotlinMetadataConsts.KOTLIN_METADATA_ANNOTATION)
@@ -68,5 +68,6 @@ private fun IAnnotation.getParamAsString(paramName: String): String? {
 }
 
 fun ClassNode.getKotlinClassMetadata(): KotlinClassMetadata? {
-	return getMetadata()?.let(KotlinClassMetadata::readLenient)
+	//return getMetadata()?.let(KotlinClassMetadata::readLenient)
+	return getMetadata()?.let(KotlinClassMetadata::readStrict)
 }
